@@ -1,0 +1,12 @@
+dependencies:
+  esbuild: 0.11.1
+lockfileVersion: 5.1
+packages:
+  /esbuild/0.11.1:
+    dev: false
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-aqhODgreee+PW3vFG96/jtVgzGYqDoUncOk2XEwEquJH/NrfvPtigqkth1QSAMrv/44Z/7pKxmcL6RTJm2L3Og==
+specifiers:
+  esbuild: ^0.11.1

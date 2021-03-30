@@ -1,0 +1,10 @@
+{
+  "name": "zephyr-example",
+  "main": "src/index.js",
+  "scripts": {
+    "bundle":"spago build --purs-args '--codegen corefn' && zephyr -f Main && NODE_ENV=production node ./build.js"
+  },
+  "dependencies": {
+    "esbuild": "^0.11.1"
+  }
+}
