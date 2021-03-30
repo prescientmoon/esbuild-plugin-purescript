@@ -10,6 +10,32 @@ const fileFilter = /\.purs$/;
 
 const toBuildError = (error) => ({ text: error ? error.message : error });
 
+const getModuleName = async (pursFile) => {
+  const readInterface = readline.createInterface({
+    input: fs.createReadStream(pursFile),
+    console: false,
+  });
+
+  let moduleName = null;
+  let wordCount = 0;
+
+  for await (const line of readInterface) {
+    const words = line.split(" ");
+
+    if (wordCount + words.length > 1) {
+      moduleName = words[1 - wordCount];
+      break;
+    }
+
+    wordCount += words.length;
+  }
+
+  if (moduleName === null)
+    throw Error(`Cannot find module name for ${pursFile}`);
+
+  return moduleName;
+};
+
 module.exports = ({ output = `${process.cwd()}/output` } = {}) => ({
   name: "purescript",
   setup(build) {
@@ -20,24 +46,7 @@ module.exports = ({ output = `${process.cwd()}/output` } = {}) => ({
 
     build.onLoad({ filter: /.*/, namespace }, async (args) => {
       try {
-        const readInterface = readline.createInterface({
-          input: fs.createReadStream(args.path),
-          console: false,
-        });
-
-        let moduleName = null;
-        let wordCount = 0;
-
-        for await (const line of readInterface) {
-          const words = line.split(" ");
-
-          if (wordCount + words.length > 1) {
-            moduleName = words[1 - wordCount];
-            break;
-          }
-
-          wordCount += words.length;
-        }
+        const moduleName = await getModuleName(args.path);
 
         const compiledPath = path.resolve(output, moduleName, "index.js");
 
@@ -46,7 +55,6 @@ module.exports = ({ output = `${process.cwd()}/output` } = {}) => ({
           resolveDir: path.resolve(output, moduleName),
         };
       } catch (e) {
-        console.log(e);
         return { errors: [toBuildError()] };
       }
     });
