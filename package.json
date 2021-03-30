@@ -1,0 +1,13 @@
+{
+  "name": "esbuild-plugin-purescript",
+  "version": "1.0.0",
+  "description": "Esbuild plugin for purescript",
+  "main": "index.js",
+  "keywords": [
+    "purescript",
+    "esbuild",
+    "functional-programming"
+  ],
+  "author": "Matei Adriel",
+  "license": "MIT"
+}

@@ -1,0 +1,4 @@
+**/node_modules
+
+# Here because of me testing the stuff in /example
+.psc-ide-port
