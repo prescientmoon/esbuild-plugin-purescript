@@ -32,7 +32,7 @@ esbuild
     bundle: true,
     outdir: "dist",
     plugins: [
-      PurescriptPlugin({ output: "myOutput" /* set to 'output' by default */ }),
+      PurescriptPlugin({ output: path.resolve(__dirname, "myOutput") /* set to 'output' by default */ }),
     ],
   })
   .catch((_e) => process.exit(1));
