@@ -43,7 +43,7 @@ Example [`src/index.js`](./example/src/index.js):
 ```js
 import { main } from "./Main.purs";
 
-console.log("Loadded purescript code 🚀");
+console.log("Loaded purescript code 🚀");
 
 main();
 ```
