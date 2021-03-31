@@ -8,6 +8,18 @@
     "esbuild",
     "functional-programming"
   ],
-  "author": "Matei Adriel",
-  "license": "MIT"
+  "author": "Matei Adriel <rafaeladriel11@gmail.com>",
+  "repository": "https://github.com/Mateiadrielrafael/esbuild-plugin-purescript",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "semantic-release": "^17.1.1"
+  }
 }
