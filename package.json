@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-purescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Esbuild plugin for purescript",
   "main": "index.js",
   "scripts": {
