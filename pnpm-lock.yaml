@@ -1,6 +1,7 @@
 devDependencies:
   '@semantic-release/changelog': 5.0.1_semantic-release@17.4.2
   '@semantic-release/git': 9.0.0_semantic-release@17.4.2
+  esbuild: 0.12.1
   semantic-release: 17.4.2_semantic-release@17.4.2
 lockfileVersion: 5.1
 packages:
@@ -700,6 +701,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==
+  /esbuild/0.12.1:
+    dev: true
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-WfQ00MKm/Y4ysz1u9PCUAsV66k5lbrcEvS6aG9jhBIavpB94FBdaWeBkaZXxCZB4w+oqh+j4ozJFWnnFprOXbg==
   /escalade/3.1.1:
     dev: true
     engines:
@@ -2319,4 +2326,5 @@ packages:
 specifiers:
   '@semantic-release/changelog': ^5.0.1
   '@semantic-release/git': ^9.0.0
+  esbuild: ^0.12.1
   semantic-release: ^17.1.1

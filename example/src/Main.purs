@@ -1,3 +1,4 @@
+{- Works with comments -}
 module Main.Something where
 
 import Prelude

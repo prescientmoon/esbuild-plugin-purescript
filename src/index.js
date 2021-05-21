@@ -1,39 +1,37 @@
 const path = require("path");
 const fs = require("fs");
 const util = require("util");
-const readline = require("readline");
+const purs = require("../output/Main");
 
 const readFile = (fileName) => util.promisify(fs.readFile)(fileName, "utf8");
 
 const namespace = "purescript";
 const fileFilter = /\.purs$/;
 
-const toBuildError = (error) => ({ text: error ? error.message : error });
+const toBuildError = (error) => {
+  if (error.fromPurs)
+    // TODO: add location data
+    return {
+      text: `Couldn't find module name for module ${path.relative(
+        process.cwd(),
+        error.file
+      )}`,
+      detail: purs.printParseError(error.error.error),
+    };
+
+  return { text: error ? error.message : error };
+};
 
 const getModuleName = async (pursFile) => {
-  const readInterface = readline.createInterface({
-    input: fs.createReadStream(pursFile),
-    console: false,
-  });
+  const text = await readFile(pursFile);
 
-  let moduleName = null;
-  let wordCount = 0;
+  const moduleName = purs.getModuleName(text);
 
-  for await (const line of readInterface) {
-    const words = line.split(" ");
+  const result = purs.either((error) => {
+    throw { fromPurs: true, error, file: pursFile };
+  })((name) => name)(moduleName);
 
-    if (wordCount + words.length > 1) {
-      moduleName = words[1 - wordCount];
-      break;
-    }
-
-    wordCount += words.length;
-  }
-
-  if (moduleName === null)
-    throw Error(`Cannot find module name for ${pursFile}`);
-
-  return moduleName;
+  return result;
 };
 
 module.exports = ({ output = `${process.cwd()}/output` } = {}) => ({
@@ -55,7 +53,7 @@ module.exports = ({ output = `${process.cwd()}/output` } = {}) => ({
           resolveDir: path.resolve(output, moduleName),
         };
       } catch (e) {
-        return { errors: [toBuildError()] };
+        return { errors: [toBuildError(e)] };
       }
     });
   },

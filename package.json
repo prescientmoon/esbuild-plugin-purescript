@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Esbuild plugin for purescript",
   "main": "index.js",
+  "scripts": {
+    "build": "spago build && node ./build.js"
+  },
   "keywords": [
     "purescript",
     "esbuild",
@@ -20,6 +23,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "esbuild": "^0.12.1",
     "semantic-release": "^17.1.1"
   }
 }
