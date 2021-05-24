@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/compare/v1.0.1...v1.0.2) (2021-05-24)
+
+
+### Bug Fixes
+
+* not really a bug fix, here only to manually trigger a deploy ([a90ed7e](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/commit/a90ed7e6afa41f7cf489f92a469237ad2fe6f209))
+
 ## [1.0.1](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/compare/v1.0.0...v1.0.1) (2021-05-21)
 
 
