@@ -32,7 +32,24 @@ jobs:
       - uses: pnpm/action-setup@v1.2.1
         with:
           version: 5.17.2
-          run_install: true
+
+      - name: Cache PureScript dependencies
+        uses: actions/cache@v2
+        # This cache uses the .dhall files to know when it should reinstall
+        # and rebuild packages. It caches both the installed packages from
+        # the `.spago` directory and compilation artifacts from the `output`
+        # directory. When restored the compiler will rebuild any files that
+        # have changed. If you do not want to cache compiled output, remove
+        # the `output` path.
+        with:
+          key: ${{ runner.os }}-spago-${{ hashFiles('**/*.dhall') }}
+          path: |
+            .spago
+            run_install: true
+
+      - name: Build
+        uses: purescript-contrib/setup-purescript@main
+        run: pnpm build
 
       - name: Release
         env:
