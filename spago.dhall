@@ -30,7 +30,13 @@ let additions =
 
 in  { name = "esbuild-plugin-purescript"
     , dependencies =
-      [ "console", "effect", "language-cst-parser", "psci-support" ]
+      [ "console"
+      , "effect"
+      , "language-cst-parser"
+      , "psci-support"
+      , "prelude"
+      , "either"
+      ]
     , packages = upstream // additions
     , sources = [ "src/**/*.purs" ]
     }
