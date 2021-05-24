@@ -47,8 +47,10 @@ jobs:
             .spago
             run_install: true
 
-      - name: Build
+      - name: Install purescript-related tooling
         uses: purescript-contrib/setup-purescript@main
+
+      - name: Build
         run: pnpm build
 
       - name: Release
