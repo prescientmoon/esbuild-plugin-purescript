@@ -32,6 +32,10 @@ jobs:
       - uses: pnpm/action-setup@v1.2.1
         with:
           version: 5.17.2
+          run_install: true
+
+      - name: Install purescript-related tooling
+        uses: purescript-contrib/setup-purescript@main
 
       - name: Cache PureScript dependencies
         uses: actions/cache@v2
@@ -45,10 +49,6 @@ jobs:
           key: ${{ runner.os }}-spago-${{ hashFiles('**/*.dhall') }}
           path: |
             .spago
-            run_install: true
-
-      - name: Install purescript-related tooling
-        uses: purescript-contrib/setup-purescript@main
 
       - name: Build
         run: pnpm build
