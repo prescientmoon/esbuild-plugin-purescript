@@ -12,10 +12,10 @@ import PureScript.CST.Parser.Monad (PositionedError)
 import PureScript.CST.Types (ModuleHeader(..), ModuleName(..), Name(..))
 
 getModuleName :: String -> Either PositionedError String
-getModuleName text = case  parsePartialModule text of 
+getModuleName = parsePartialModule >>> case _ of 
   ParseSucceeded cst -> Right $ go cst
   ParseSucceededWithErrors cst errors -> Right $ go cst
   ParseFailed error -> Left error
   where
   go :: forall a. PartialModule a -> String
-  go (PartialModule { header: ModuleHeader { name: Name { name: ModuleName name } } }) = name
+  go (PartialModule { header: ModuleHeader { name: Name { name: ModuleName name }}}) = name
