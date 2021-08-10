@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/compare/v1.0.2...v1.1.0) (2021-08-10)
+
+
+### Features
+
+* working watch mode based on `purs graph` ([431e367](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/commit/431e36776503ad7e47f37ce5b4adce67519345ce))
+
 ## [1.0.2](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/compare/v1.0.1...v1.0.2) (2021-05-24)
 
 
