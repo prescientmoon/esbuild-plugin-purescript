@@ -37,8 +37,9 @@ esbuild
           __dirname,
           "myOutput"
         ) /* set to 'output' by default */,
-        ,
-        sources: ["some/**/glob/*.purs"] /* set to `spago sources` by default */
+        sources: [
+          "some/**/glob/*.purs",
+        ] /* set to `spago sources` by default */,
       }),
     ],
   })
