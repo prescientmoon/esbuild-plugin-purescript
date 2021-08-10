@@ -32,7 +32,14 @@ esbuild
     bundle: true,
     outdir: "dist",
     plugins: [
-      PurescriptPlugin({ output: path.resolve(__dirname, "myOutput") /* set to 'output' by default */ }),
+      PurescriptPlugin({
+        output: path.resolve(
+          __dirname,
+          "myOutput"
+        ) /* set to 'output' by default */,
+        ,
+        sources: ["some/**/glob/*.purs"] /* set to `spago sources` by default */
+      }),
     ],
   })
   .catch((_e) => process.exit(1));
