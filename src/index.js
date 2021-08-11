@@ -56,16 +56,22 @@ const moduleDependencies = async (name, sources) =>
         try {
           const graph = JSON.parse(stdout);
 
+          const visited = {}
+
           const go = function* (name) {
             if (!graph[name])
               return reject(`No module ${name} in dependency graph`);
 
             yield name;
 
+            const hasBeenVisited = name in visited;
+            visited[name] = true;
             const dependencies = graph[name].depends;
 
-            for (const dependency of dependencies) {
-              yield* go(dependency);
+            if (!hasBeenVisited) {
+              for (const dependency of dependencies) {
+                yield* go(dependency);
+              }
             }
           };
 
