@@ -1,5 +1,5 @@
 const esbuild = require("esbuild");
-const PurescriptPlugin = require("../index"); // require('esbuild-plugin-purescript')
+const PureScriptPlugin = require("../index"); // require('esbuild-plugin-purescript')
 
 const development = process.env.NODE_ENV === "development";
 
@@ -9,7 +9,7 @@ esbuild
     bundle: true,
     outdir: "dist",
     watch: development,
-    plugins: [PurescriptPlugin()],
+    plugins: [PureScriptPlugin()],
   })
   .catch((_e) => {
     console.log(_e);

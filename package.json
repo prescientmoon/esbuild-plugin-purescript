@@ -1,7 +1,7 @@
 {
   "name": "esbuild-plugin-purescript",
   "version": "1.1.1",
-  "description": "Esbuild plugin for purescript",
+  "description": "esbuild plugin for PureScript",
   "main": "index.js",
   "scripts": {
     "build": "spago build && node ./build.js"

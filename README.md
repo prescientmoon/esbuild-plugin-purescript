@@ -1,15 +1,15 @@
-# Purescript esbuild plugin
+# PureScript esbuild plugin
 
-[Esbuild](https://esbuild.github.io/) integration for [purescript](https://www.purescript.org/)
+[ssbuild](https://esbuild.github.io/) integration for [PureScript](https://www.purescript.org/)
 
 ### What this plugin **does**:
 
-- Allows you to import `.purs` file directly from within your javascript.
+- Allows you to import `.purs` files directly from your JavaScript
 
-### What this plugin **doesn not do**:
+### What this plugin **does not do**:
 
-- Run `spago build` or similar commands for you: this will only point esbuild to your existing `output` directory
-- Tree shake using [zephyr](https://github.com/coot/zephyr) for you. If you want to use zephyr, checkout [this example](./zephyr-example)
+- Run `spago build` or similar commands for you. This plugin will only point esbuild to your existing `output` directory
+- Tree shake using [zephyr](https://github.com/coot/zephyr) for you. If you want to use zephyr, check out [this example](./zephyr-example)
 
 ## Usage
 
@@ -19,11 +19,11 @@ First, install the library from npm:
 npm install esbuild-plugin-purescript
 ```
 
-Example [build.js](./example/build.js):
+Example [`build.js`](./example/build.js):
 
 ```js
 const esbuild = require("esbuild");
-const PurescriptPlugin = require("esbuild-plugin-purescript");
+const PureScriptPlugin = require("esbuild-plugin-purescript");
 const path = require("path");
 
 esbuild
@@ -32,7 +32,7 @@ esbuild
     bundle: true,
     outdir: "dist",
     plugins: [
-      PurescriptPlugin({
+      PureScriptPlugin({
         output: path.resolve(
           __dirname,
           "myOutput"
@@ -51,7 +51,7 @@ Example [`src/index.js`](./example/src/index.js):
 ```js
 import { main } from "./Main.purs";
 
-console.log("Loaded purescript code 🚀");
+console.log("Loaded PureScript code 🚀");
 
 main();
 ```
