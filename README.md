@@ -1,6 +1,6 @@
 # PureScript esbuild plugin
 
-[ssbuild](https://esbuild.github.io/) integration for [PureScript](https://www.purescript.org/)
+[esbuild](https://esbuild.github.io/) integration for [PureScript](https://www.purescript.org/)
 
 ### What this plugin **does**:
 
