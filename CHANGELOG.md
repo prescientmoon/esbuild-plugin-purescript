@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/compare/v1.1.0...v1.1.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* working watch mode ([b201637](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/commit/b20163726567259a797592ca645c9caa0e40e6c1))
+
 # [1.1.0](https://github.com/Mateiadrielrafael/esbuild-plugin-purescript/compare/v1.0.2...v1.1.0) (2021-08-10)
 
 
